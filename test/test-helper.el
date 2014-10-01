@@ -25,6 +25,9 @@
 
 (message "Running tests on Emacs %s" emacs-version)
 
+(require 'undercover)
+(undercover "clojure-mode.el")
+
 (let* ((current-file (if load-in-progress load-file-name (buffer-file-name)))
        (source-directory (locate-dominating-file current-file "Cask"))
        ;; Do not load outdated byte code for tests
